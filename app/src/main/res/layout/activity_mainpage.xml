@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite"
+    android:fitsSystemWindows="true">
+
+    <ImageView
+        android:id="@+id/img_main_agent"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:background="@color/colorPrimary"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="@dimen/layoutPadding"
+        />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/pager_main_list"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_gravity="top"
+        android:clipToPadding="false"
+        android:overScrollMode="never"
+        android:paddingBottom="30dp"
+        android:paddingEnd="@dimen/card_padding"
+        android:paddingLeft="@dimen/card_padding"
+        android:paddingRight="@dimen/card_padding"
+        android:paddingStart="@dimen/card_padding"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/btn_main_new"
+        android:layout_marginBottom="100dp"
+        android:layout_marginTop="120dp"/>
+
+    <TextView
+        android:id="@+id/txt_main_swipe_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/main_swipe_left"
+        android:fontFamily="@font/questrialregular"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/txt_main_history"
+        android:layout_marginLeft="@dimen/layoutPadding"
+        android:layout_marginBottom="40dp"
+        android:visibility="visible"/>
+
+    <TextView
+        android:id="@+id/txt_main_swipe_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/main_swipe_right"
+        android:fontFamily="@font/questrialregular"
+        app:layout_constraintRight_toRightOf="@id/pager_main_list"
+        app:layout_constraintBottom_toTopOf="@id/txt_main_history"
+        android:layout_marginRight="@dimen/layoutPadding"
+        android:layout_marginBottom="40dp"
+        android:visibility="visible"/>
+
+    <TextView
+        android:id="@+id/txt_main_history"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="　　　지금까지 에기가 143개의 사진을 배웠습니다.　　　"
+        android:textSize="@dimen/smallText"
+        android:background="@color/colorSubAccent"
+        android:textColor="@color/colorWhite"
+        android:padding="@dimen/smallPadding"
+        app:layout_constraintBottom_toTopOf="@id/btn_main_new"
+        android:layout_marginBottom="@dimen/layoutPadding"
+        android:singleLine="true"
+        android:scrollHorizontally="true"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:ellipsize="marquee"
+        />
+
+    <Button
+        android:id="@+id/btn_main_new"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="@dimen/layoutPadding"
+        android:layout_marginLeft="@dimen/layoutPadding"
+        android:layout_marginRight="@dimen/layoutPadding"
+        android:background="@drawable/corner_accent_small"
+        android:text="@string/main_add"
+        android:fontFamily="@font/questrialregular"
+        android:textSize="@dimen/mediumText"
+        android:textColor="@color/colorWhite"
+        android:elevation="0dp"/>
+
+
+</android.support.constraint.ConstraintLayout>

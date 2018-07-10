@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Study2Proto</string>
+
+    <string name="main_add">NEW RECORD</string>
+    <string name="main_swipe_left">\u3008 SWIPE TO LEFT</string>
+    <string name="main_swipe_right">SWIPE TO RIGHT \u3009</string>
+
+</resources>

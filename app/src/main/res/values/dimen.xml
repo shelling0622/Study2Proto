@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="layoutPadding">30dp</dimen>
+
+    <dimen name="smallMargin">10dp</dimen>
+    <dimen name="mediumMargin">20dp</dimen>
+
+
+    <dimen name="smallPadding">10dp</dimen>
+
+    <dimen name="cornerSmall">7dp</dimen>
+    <dimen name="cornerMedium">20dp</dimen>
+    <dimen name="cornerLarge">30dp</dimen>
+
+    <dimen name="smallWidth">89dp</dimen>
+    <dimen name="smallheight">50dp</dimen>
+    <dimen name="smallText">20dp</dimen>
+
+
+    <dimen name="mediumWidth">107dp</dimen>
+    <dimen name="mediumheight">60dp</dimen>
+    <dimen name="mediumText">25dp</dimen>
+
+    <dimen name="LargeWidth">250dp</dimen>
+    <dimen name="Largeheight">140dp</dimen>
+    <dimen name="LargeText">105dp</dimen>
+
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="card_padding">60dp</dimen>
+
+</resources>
