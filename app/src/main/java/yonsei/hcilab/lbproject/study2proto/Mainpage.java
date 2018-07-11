@@ -11,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -29,6 +30,7 @@ public class Mainpage extends AppCompatActivity {
     TextView txtSwipeLeft;
     TextView txtSwipeRight;
     ImageView imgCard1;
+    Button btnNew;
 
     int cellNum;
     int personNum;
@@ -57,14 +59,15 @@ public class Mainpage extends AppCompatActivity {
         txtHistory = (TextView)findViewById(R.id.txt_main_history);
         txtSwipeLeft = (TextView)findViewById(R.id.txt_main_swipe_left);
         txtSwipeRight = (TextView)findViewById(R.id.txt_main_swipe_right);
-        LayoutInflater inflater = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        final LayoutInflater inflater = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = inflater.inflate(R.layout.fragment_adapter, null);
         imgCard1 = (ImageView)view.findViewById(R.id.img_main_card);
+        btnNew = (Button)findViewById(R.id.btn_main_new);
 
         // history text moving effect
         txtHistory.setSelected(true);
 
-        // NO Explanation Group -> NO History
+
 
         // Image Card Viewpager
         mViewPager = (ViewPager) findViewById(R.id.pager_main_list);
@@ -85,19 +88,36 @@ public class Mainpage extends AppCompatActivity {
             txtSwipeLeft.setVisibility(View.INVISIBLE);
         }
 
+        //
         String fileName = null;
 
-        File[] listFiles = (new File(Environment.getDataDirectory()+"/DCIM/Study2Proto/").listFiles());
+        File[] listFiles = (new File(Environment.getExternalStorageDirectory() + "/Study2Proto").listFiles());
 
-        if(listFiles[0].getName().endsWith(".png") || listFiles[0].getName().endsWith(".bmp"))
-            fileName = listFiles[0].getName();
-
-        File file = new File(Environment.getDataDirectory()+"/DCIM/Study2Proto/"+fileName);
-
-        if(file.exists()){
-            Toast.makeText(this, "Success", Toast.LENGTH_LONG).show();
-
+        if(listFiles == null){
+            Toast.makeText(getApplicationContext(), "no folder", Toast.LENGTH_LONG).show();
+        }else{
+            if(listFiles[0].getName().endsWith(".png") || listFiles[0].getName().endsWith(".bmp") || listFiles[0].getName().endsWith(".jpg"))
+                fileName = listFiles[0].getName();
+            File file = new File(Environment.getExternalStorageDirectory()+"/Study2Proto/"+fileName);
+            if(file.exists()){
+                Toast.makeText(getApplicationContext(), "Success", Toast.LENGTH_LONG).show();
+            }else{
+                Toast.makeText(getApplicationContext(), "no image", Toast.LENGTH_LONG).show();
+            }
         }
+
+
+
+
+        btnNew.setOnClickListener(new Button.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Mainpage.this, OpenCamera.class);
+                intent.putExtra("cellNum", cellNum);
+                intent.putExtra("personNum", personNum);
+                startActivity(intent);
+            }
+        });
 
 
     }
