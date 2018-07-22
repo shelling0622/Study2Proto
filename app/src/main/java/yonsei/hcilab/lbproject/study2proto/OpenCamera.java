@@ -26,14 +26,14 @@ import java.util.Date;
 
 public class OpenCamera extends AppCompatActivity {
 
+    int cellNum;
+    int personNum;
+
     private static final int MY_PERMISSION_CAMERA = 1111;
     private static final int REQUEST_TAKE_PHOTO = 2222;
 
     String mCurrentPhotoPath;
     Uri imageUri;
-
-    int cellNum;
-    int personNum;
 
     @Override
     public void onBackPressed() {
@@ -47,14 +47,14 @@ public class OpenCamera extends AppCompatActivity {
 
         // intent
         Intent intent = getIntent();
-        cellNum = intent.getIntExtra("cellNum", 0);
         personNum = intent.getIntExtra("personNum", 0);
+        cellNum = intent.getIntExtra("cellNum", 0);
 
         checkPermission();
         captureCamera();
     }
 
-    //checkPermission, onRequestPermissionResult : 카메라, 외장 메모리 접근 권한 처리
+    // get Permission of Camera, Storage
     private void checkPermission(){
 
         if(ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED){
@@ -126,7 +126,7 @@ public class OpenCamera extends AppCompatActivity {
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
         String imageFileName = "JPEG_" + timeStamp + ".jpg";
         File imageFile = null;
-        File storageDir = new File(Environment.getExternalStorageDirectory() + "/Study2Proto");
+        File storageDir = new File(Environment.getExternalStorageDirectory() + "/Pictures","Study2");
 
         if(!storageDir.exists()){
             Log.i("mCurrentPhotoPath1", storageDir.toString());
@@ -159,10 +159,9 @@ public class OpenCamera extends AppCompatActivity {
                         Log.i("REQUEST_TAKE_PHOTO", "OK");
 
                         galleryAddPic();
-                        Intent intent4 = new Intent(this, ImageProcessing.class);
-                        intent4.putExtra("cellNum", cellNum);
-                        intent4.putExtra("personNum", personNum);
-                        startActivity(intent4);
+
+                        finish();
+
 
                     }catch (Exception e) {
                         Log.e("REQUEST_TAKE_PHOTO", e.toString());
@@ -170,8 +169,6 @@ public class OpenCamera extends AppCompatActivity {
                 }else {
                     // 카메라 구동된 상태에서 이전키를 눌렀을 때 메인화면으로 돌아가기
                     Intent intent4 = new Intent(this, Mainpage.class);
-                    intent4.putExtra("cellNum", cellNum);
-                    intent4.putExtra("personNum", personNum);
                     startActivity(intent4);
                 }
                 break;
@@ -179,4 +176,3 @@ public class OpenCamera extends AppCompatActivity {
     }
 
 }
-

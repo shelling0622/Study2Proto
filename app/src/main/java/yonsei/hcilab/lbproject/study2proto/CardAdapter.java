@@ -1,6 +1,5 @@
 package yonsei.hcilab.lbproject.study2proto;
 
-
 import android.support.v7.widget.CardView;
 
 public interface CardAdapter {

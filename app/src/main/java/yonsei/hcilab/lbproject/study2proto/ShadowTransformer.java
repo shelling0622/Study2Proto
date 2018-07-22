@@ -4,7 +4,6 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.widget.CardView;
 import android.view.View;
 
-
 public class ShadowTransformer implements ViewPager.OnPageChangeListener, ViewPager.PageTransformer {
 
     private ViewPager mViewPager;
@@ -12,7 +11,7 @@ public class ShadowTransformer implements ViewPager.OnPageChangeListener, ViewPa
     private float mLastOffset;
     private boolean mScalingEnabled;
 
-    public ShadowTransformer(ViewPager viewPager, CardFragmentPagerAdapter adapter) {
+    public ShadowTransformer(ViewPager viewPager, CardAdapter adapter) {
         mViewPager = viewPager;
         viewPager.addOnPageChangeListener(this);
         mAdapter = adapter;

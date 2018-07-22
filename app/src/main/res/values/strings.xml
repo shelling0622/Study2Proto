@@ -5,4 +5,7 @@
     <string name="main_swipe_left">\u3008 SWIPE TO LEFT</string>
     <string name="main_swipe_right">SWIPE TO RIGHT \u3009</string>
 
+    <string name="image_picker_error">Something is wrong with that image. Pick a different one please.</string>
+    <string name="loading_message">Uploading image. Please wait.</string>
+
 </resources>

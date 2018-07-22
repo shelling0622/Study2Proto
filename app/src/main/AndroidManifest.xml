@@ -2,7 +2,24 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="yonsei.hcilab.lbproject.study2proto">
 
+    <!-- Permission for External Storages -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!-- Permission for Camera -->
+    <uses-permission
+        android:name="android.permission.CAMERA"
+        android:requiredFeature="true" />
+    <uses-permission android:name="android.permission.STORAGE" />
+
+    <uses-feature
+        android:name="android.hardware.camera.any"
+        android:required="true" />
+    <uses-feature
+        android:name="android.hardware.camera.autofocus"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
 
     <application
         android:allowBackup="true"
@@ -11,6 +28,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/CustomTheme">
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="yonsei.hcilab.lbproject.study2proto"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
         <activity android:name=".Mainpage">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -18,10 +45,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".StartActivity" />
-        <activity android:name=".LogActivity" />
         <activity android:name=".OpenCamera" />
-        <activity android:name=".ImageProcessing"></activity>
     </application>
 
 </manifest>
